@@ -11,11 +11,14 @@
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
+#include "drive.h"
 
 using namespace vex;
 
+competition Competition;
+
 int main() {
   // Initializing Robot Configuration. DO NOT REMOVE!
-  vexcodeInit();
-  
+  Competition.drivercontrol(usercontrol);
+  vexcodeInit();  
 }
