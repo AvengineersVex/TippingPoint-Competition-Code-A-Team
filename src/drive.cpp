@@ -9,6 +9,7 @@ extern motor RightDriveSmart;
 extern motor ScissorLift;
 extern motor Conveyor;
 
+rotationUnits maxRotation;
 
 void usercontrol(void)
 {
@@ -56,10 +57,14 @@ void usercontrol(void)
       // if(ScissorsLift.rotation > maxRotation) {
       // Stop rotation
       // }
+        ScissorLift.spin(forward);
+        if(ScissorLift.rotation(rev) > maxRotation) { ScissorLift.setVelocity(0, pct); }
+        ScissorLift.setVelocity(100, pct);
+
 
       }
     }
-
+    if(Controller1.ButtonR2.pressing() == false) { ScissorLift.set}
     if(Controller1.ButtonR2.pressing()) {
       // Move lift up
       // ScissorLift.RotateDown
@@ -89,4 +94,3 @@ void usercontrol(void)
 
     }
   }   
-}
