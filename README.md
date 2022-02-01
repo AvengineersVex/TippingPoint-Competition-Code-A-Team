@@ -21,9 +21,8 @@
 ### Members
 Captain: Michael Phillips
 
-Members: Aryan Jain, Sarah Zhang, Sathvik Parasa
+Members: Aryan Jain, Sathvik Parasa
 
 ### Motors
  - LeftDriveSmart
  - RightDriveSmart
- - Intake
