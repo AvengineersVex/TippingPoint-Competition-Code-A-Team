@@ -6,6 +6,9 @@ using namespace vex;
 extern controller Controller1;
 extern motor LeftDriveSmart;
 extern motor RightDriveSmart;
+extern motor ScissorLift;
+extern motor Conveyor;
+
 
 void usercontrol(void)
 {
@@ -46,5 +49,44 @@ void usercontrol(void)
     
     RightDriveSmart.setVelocity(rightDriveRatio * verticalAxis / 100, velocityUnits::pct);
     LeftDriveSmart.setVelocity(leftDriveRatio * verticalAxis / 100, velocityUnits::pct);
-  }
+
+    if(Controller1.ButtonR1.pressing()) {
+      // Move lift up
+      // ScissorLift.RotateUp
+      // if(ScissorsLift.rotation > maxRotation) {
+      // Stop rotation
+      // }
+
+      }
+    }
+
+    if(Controller1.ButtonR2.pressing()) {
+      // Move lift up
+      // ScissorLift.RotateDown
+      // if(ScissorsLift.rotation < minRotation) {
+      // Stop rotation
+      // }
+
+    }
+
+    if(Controller1.ButtonL1.pressing()) {
+      // Move hook up
+
+    }
+
+    if(Controller1.ButtonL2.pressing()) {
+      // Move hook down
+
+    }
+
+    if(Controller1.ButtonX.pressing()) {
+      // Rotate conveyor forward
+
+    }
+
+    if(Controller1.ButtonB.pressing()) {
+      // Rotate conveyor backward
+
+    }
+  }   
 }
