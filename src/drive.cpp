@@ -11,6 +11,18 @@ extern motor Conveyor;
 
 rotationUnits maxRotation;
 
+void scissorLiftRotate() {
+
+}  
+
+void scissorLiftRotateBack()
+{
+  while (ScissorLift.position(deg) > 30 && ScissorLift.position(deg) < 90)
+  {
+    ScissorLift.spinToPosition(90, degrees);
+  }
+}
+
 void usercontrol(void)
 {
   RightDriveSmart.spin(fwd);
@@ -18,7 +30,6 @@ void usercontrol(void)
   
   RightDriveSmart.setVelocity(0, velocityUnits::pct);
   LeftDriveSmart.setVelocity(0, velocityUnits::pct);
-  
   while (true)
   {
     float verticalAxis = Controller1.Axis3.position();
@@ -51,21 +62,10 @@ void usercontrol(void)
     RightDriveSmart.setVelocity(rightDriveRatio * verticalAxis / 100, velocityUnits::pct);
     LeftDriveSmart.setVelocity(leftDriveRatio * verticalAxis / 100, velocityUnits::pct);
 
-    if(Controller1.ButtonR1.pressing()) {
-      // Move lift up
-      // ScissorLift.RotateUp
-      // if(ScissorsLift.rotation > maxRotation) {
-      // Stop rotation
-      // }
-        ScissorLift.spin(forward);
-        if(ScissorLift.rotation(rev) > maxRotation) { ScissorLift.setVelocity(0, pct); }
-        ScissorLift.setVelocity(100, pct);
+    ScissorLift.setVelocity(100, pct);
+    Controller1.ButtonR1.pressed(scissorLiftRotate);
+    Controller1.ButtonR2.pressed(scissorLiftRotateBack);
 
-
-      }
-    }
-    if(Controller1.ButtonR2.pressing() == false) { ScissorLift.set}
-    if(Controller1.ButtonR2.pressing()) {
       // Move lift up
       // ScissorLift.RotateDown
       // if(ScissorsLift.rotation < minRotation) {
@@ -93,4 +93,4 @@ void usercontrol(void)
       // Rotate conveyor backward
 
     }
-  }   
+  }

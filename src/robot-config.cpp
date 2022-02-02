@@ -12,7 +12,7 @@ motor LeftDriveSmart = motor(PORT1, ratio18_1, false);
 motor RightDriveSmart = motor(PORT10, ratio18_1, true);
 drivetrain Drivetrain = drivetrain(LeftDriveSmart, RightDriveSmart, 319.19, 355.59999999999997, 330.2, mm, 0.625);
 controller Controller1 = controller(primary);
-motor ScissorLift = motor(PORT15, ratio18_1, false);
+motor ScissorLift = motor(PORT13, ratio18_1, false);
 motor Hook = motor(PORT17, ratio18_1, false);
 motor Conveyor = motor(PORT19, ratio18_1, false);
 
