@@ -27,14 +27,14 @@ void rerun() {
   while(true) {
 //   for(int i = 0; i < 10; i ++) {
 
-    // autonomousProgram << "motor1.setVelocity(" << motor1.velocity() << ", pct" << std::endl;
-    // autonomousProgram << "motor2.setVelocity(" << motor2.velocity() << ", pct" << std::endl;
-    // autonomousProgram << "motor3.setVelocity(" << motor3.velocity() << ", pct" << std::endl;
-    // autonomousProgram << "motor4.setVelocity(" << motor4.velocity() << ", pct" << std::endl;
-    autonomousProgram << "motor1.setVelocity(" << 1 << ", pct)" << std::endl;
-    autonomousProgram << "motor2.setVelocity(" << 2 << ", pct)" << std::endl;
-    autonomousProgram << "motor3.setVelocity(" << 3 << ", pct)" << std::endl;
-    autonomousProgram << "motor4.setVelocity(" << 4 << ", pct)" << std::endl;
+    // autonomousProgram << "motor1.spin(fwd, " << motor1.velocity() << ", pct" << std::endl;
+    // autonomousProgram << "motor2.spin(fwd, " << motor2.velocity() << ", pct" << std::endl;
+    // autonomousProgram << "motor3.spin(fwd, " << motor3.velocity() << ", pct" << std::endl;
+    // autonomousProgram << "motor4.spin(fwd, " << motor4.velocity() << ", pct" << std::endl;
+    autonomousProgram << "motor1.spin(fwd, " << 1 << ", pct)" << std::endl;
+    autonomousProgram << "motor2.spin(fwd, " << 2 << ", pct)" << std::endl;
+    autonomousProgram << "motor3.spin(fwd, " << 3 << ", pct)" << std::endl;
+    autonomousProgram << "motor4.spin(fwd, " << 4 << ", pct)" << std::endl;
 
     // currentTime = Brain.timer.system;
     // timeDifference = currentTime - previousTime;
