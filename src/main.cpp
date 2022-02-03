@@ -12,13 +12,19 @@
 
 #include "vex.h"
 #include "drive.h"
+#include "rerun.h"
 
 using namespace vex;
 
 competition Competition;
 
 int main() {
-  // Initializing Robot Configuration. DO NOT REMOVE!
+  
   Competition.drivercontrol(usercontrol);
-  vexcodeInit();  
+  
+  // Initializing Robot Configuration. DO NOT REMOVE!
+  vexcodeInit();
+
+  // Rerun Program
+  rerun();
 }
