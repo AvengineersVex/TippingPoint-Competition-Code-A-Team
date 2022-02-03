@@ -6,6 +6,68 @@ using namespace vex;
 extern controller Controller1;
 extern motor LeftDriveSmart;
 extern motor RightDriveSmart;
+extern motor scissorLift;
+
+void scissorLiftFWD(void)
+{
+  if(Controller1.ButtonL1.pressing())
+  {
+    scissorLift.spin(fwd);
+  }
+  if(!Controller1.ButtonL1.pressing())
+  {
+    scissorLift.setStopping(brake);
+    scissorLift.stop();
+  }
+}
+
+void scissorLiftREV(void)
+{
+  if(Controller1.ButtonL2.pressing())
+  {
+    scissorLift.spin(reverse);
+  }
+  if(!Controller1.ButtonL2.pressing())
+  {
+    scissorLift.setStopping(brake);
+    scissorLift.stop();
+  }
+}
+
+void scissorLiftControl(void)
+{
+  //code 1 - press down hold to turn
+
+  // double maxRotationInDeg = 0;
+  // double minRotationInDeg = 0;
+
+  // if(Controller1.ButtonL1.pressing())
+  // {
+    
+  //   scissorLift.spin(forward, 12.0, voltageUnits::volt);
+  // }
+
+  // else if(Controller1.ButtonL2.pressing())
+  // {
+  //   scissorLift.spin(forward, -12.0, voltageUnits::volt);
+  // }
+  // else
+  // {
+  //   scissorLift.spin(forward, 0, voltageUnits::volt);
+  // }
+
+  //code 2 - press down and hold to turn
+  scissorLiftFWD();
+  scissorLiftREV();
+  
+  //code 3 - tap to turn to preset position
+
+}
+
+void liftControl(void)
+{
+
+}
 
 void usercontrol(void)
 {
@@ -46,5 +108,11 @@ void usercontrol(void)
     
     RightDriveSmart.setVelocity(rightDriveRatio * verticalAxis / 100, velocityUnits::pct);
     LeftDriveSmart.setVelocity(leftDriveRatio * verticalAxis / 100, velocityUnits::pct);
+  
+    scissorLiftControl();
+    
+    liftControl();
+
+    wait(20, msec);
   }
 }

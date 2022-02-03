@@ -18,13 +18,38 @@ using namespace vex;
 
 competition Competition;
 
-int main() {
-  
-  Competition.drivercontrol(usercontrol);
-  
-  // Initializing Robot Configuration. DO NOT REMOVE!
+void pre_auton(void)
+{
   vexcodeInit();
+}
+
+void autonomous(void)
+{
+  //rerun
+  rerun();
+}
+
+void initDrive(void)
+{
+  while(true)
+  {
+    usercontrol();
+    wait(20, msec);
+  }
+}
+
+int main()
+{  
+  Competition.autonomous(autonomous);
+  Competition.drivercontrol(initDrive);
+
+  pre_auton();
 
   // Rerun Program
-  rerun();
+  autonomous();
+
+  while(true)
+  {
+    wait(100, msec);
+  }
 }
