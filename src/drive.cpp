@@ -1,4 +1,5 @@
 #include "vex.h"
+#include "rerun-old.h"
 
 using namespace vex;
 
@@ -6,67 +7,89 @@ using namespace vex;
 extern controller Controller1;
 extern motor LeftDriveSmart;
 extern motor RightDriveSmart;
-extern motor scissorLift;
+extern motor scissorLift1;
+extern motor scissorLift2;
+
+bool hooked = false;
 
 void scissorLiftFWD(void)
 {
-  if(Controller1.ButtonL1.pressing())
+  if(Controller1.ButtonR1.pressing())
   {
-    scissorLift.spin(fwd);
+    scissorLift1.spin(fwd);
+    scissorLift2.spin(fwd);
   }
-  if(!Controller1.ButtonL1.pressing())
+  if(!Controller1.ButtonR1.pressing())
   {
-    scissorLift.setStopping(brake);
-    scissorLift.stop();
+    scissorLift1.setStopping(brake);
+    scissorLift1.stop();
+
+    scissorLift1.setStopping(brake);
+    scissorLift1.stop();
   }
 }
 
 void scissorLiftREV(void)
 {
-  if(Controller1.ButtonL2.pressing())
+  if(Controller1.ButtonR2.pressing())
   {
-    scissorLift.spin(reverse);
+    scissorLift1.spin(reverse);
+    scissorLift2.spin(reverse);
   }
-  if(!Controller1.ButtonL2.pressing())
+  if(!Controller1.ButtonR2.pressing())
   {
-    scissorLift.setStopping(brake);
-    scissorLift.stop();
+    scissorLift1.setStopping(brake);
+    scissorLift1.stop();
+
+    scissorLift2.setStopping(brake);
+    scissorLift2.stop();
   }
 }
 
 void scissorLiftControl(void)
 {
-  //code 1 - press down hold to turn
+  // code 1 - press down hold to turn
 
-  // double maxRotationInDeg = 0;
-  // double minRotationInDeg = 0;
+  if(Controller1.ButtonL1.pressing())
+  {
+      scissorLift1.spin(forward, 100, percentUnits::pct);
+      scissorLift2.spin(forward, 100, percentUnits::pct);
+  }
 
-  // if(Controller1.ButtonL1.pressing())
-  // {
-    
-  //   scissorLift.spin(forward, 12.0, voltageUnits::volt);
-  // }
+  else if(Controller1.ButtonL2.pressing())
+  {
+      scissorLift1.spin(forward, -100, percentUnits::pct);
+      scissorLift2.spin(forward, -100, percentUnits::pct);
+  }
+  else
+  {
+    scissorLift1.setStopping(hold);
+    scissorLift1.stop();
 
-  // else if(Controller1.ButtonL2.pressing())
-  // {
-  //   scissorLift.spin(forward, -12.0, voltageUnits::volt);
-  // }
-  // else
-  // {
-  //   scissorLift.spin(forward, 0, voltageUnits::volt);
-  // }
+    scissorLift2.setStopping(hold);
+    scissorLift2.stop();
+  }
 
   //code 2 - press down and hold to turn
-  scissorLiftFWD();
-  scissorLiftREV();
+  // scissorLiftFWD();
+  // scissorLiftREV();
   
   //code 3 - tap to turn to preset position
 
 }
 
-void liftControl(void)
+void hook(void)
 {
-
+  if(Controller1.ButtonR1.pressing())
+  {
+    Hook.setVelocity(100, pct);
+    Hook.startRotateTo(90, deg);
+  }
+  if(Controller1.ButtonR2.pressing())
+  {
+    Hook.setVelocity(100, pct);
+    Hook.startRotateTo(-90, deg);
+  }
 }
 
 void usercontrol(void)
@@ -110,8 +133,9 @@ void usercontrol(void)
     LeftDriveSmart.setVelocity(leftDriveRatio * verticalAxis / 100, velocityUnits::pct);
   
     scissorLiftControl();
-    
-    liftControl();
+    hook();
+
+    // rerun();
 
     wait(20, msec);
   }
