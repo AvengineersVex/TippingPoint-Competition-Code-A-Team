@@ -9,6 +9,7 @@ extern drivetrain Drivetrain;
 extern controller Controller1;
 extern motor scissorLift1;
 extern motor scissorLift2;
+extern motor scissorLift3;
 extern motor Hook;
 extern motor Conveyor;
 

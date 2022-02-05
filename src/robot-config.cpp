@@ -8,11 +8,12 @@ using code = vision::code;
 brain  Brain;
 
 // VEXcode device constructors
-motor LeftDriveSmart = motor(PORT17, ratio18_1, false);
+motor LeftDriveSmart = motor(PORT16, ratio18_1, false);
 motor RightDriveSmart = motor(PORT18, ratio18_1, true);
 drivetrain Drivetrain = drivetrain(LeftDriveSmart, RightDriveSmart, 319.19, 355.59999999999997, 330.2, mm, 0.625);
 controller Controller1 = controller(primary);
 motor scissorLift1 = motor(PORT11, ratio36_1, false);
 motor scissorLift2 = motor(PORT13, ratio36_1, false);
+motor scissorLift3 = motor(PORT8, ratio36_1, true);
 motor Hook = motor(PORT15, ratio18_1, false);
 motor Conveyor = motor(PORT9, ratio18_1, false);

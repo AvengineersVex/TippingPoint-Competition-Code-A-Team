@@ -38,9 +38,6 @@ int main()
   // Rerun Program
   // rerun();
 
-  // Autonomous Program
-  // autonomousProgram();
-
   while(true)
   {
     wait(100, msec);

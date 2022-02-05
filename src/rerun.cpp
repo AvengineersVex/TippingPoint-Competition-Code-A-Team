@@ -38,12 +38,12 @@ void rerun() {
     hookControl();
     conveyorControl();
     
-    std::cout << "\tscissorLift1.spin(fwd, " << scissorLift1.velocity(pct) << ", pct);" << std::endl;
-    std::cout << "\tscissorLift2.spin(fwd, " << scissorLift2.velocity(pct) << ", pct);" << std::endl;
-    std::cout << "\tHook.spin(fwd, " << Hook.velocity(pct) << ", pct);" << std::endl;
-    std::cout << "\tConveyor.spin(fwd, " << Conveyor.velocity(pct) << ", pct);" << std::endl;
-    std::cout << "\tLeftDriveSmart.spin(fwd, " << LeftDriveSmart.velocity(pct) << ", pct);" << std::endl;
-    std::cout << "\tRightDriveSmart.spin(fwd, " << RightDriveSmart.velocity(pct) << ", pct);" << std::endl;
+    std::cout << "\tscissorLift1.spin(fwd, " << scissorLift1.velocity(pct) * 10 << ", pct);" << std::endl;
+    std::cout << "\tscissorLift2.spin(fwd, " << scissorLift2.velocity(pct) * 10 << ", pct);" << std::endl;
+    std::cout << "\tHook.spin(fwd, " << Hook.velocity(pct) * 10 << ", pct);" << std::endl;
+    std::cout << "\tConveyor.spin(fwd, " << Conveyor.velocity(pct) * 10 << ", pct);" << std::endl;
+    std::cout << "\tLeftDriveSmart.spin(fwd, " << LeftDriveSmart.velocity(pct) * 10 << ", pct);" << std::endl;
+    std::cout << "\tRightDriveSmart.spin(fwd, " << RightDriveSmart.velocity(pct) * 10 << ", pct);" << std::endl;
 
     // std::cout << "\tscissorLift1.spin(fwd, " << 1 << ", pct);\n";
     // std::cout << "\tscissorLift2.spin(fwd, " << 2 << ", pct);\n";

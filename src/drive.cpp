@@ -18,12 +18,14 @@ void scissorLiftControl()
   {
       scissorLift1.spin(forward, -20, percentUnits::pct);
       scissorLift2.spin(forward, -20, percentUnits::pct);
+      scissorLift3.spin(forward, -20, percentUnits::pct);
   }
 
   else if(Controller1.ButtonR2.pressing())
   {
       scissorLift1.spin(forward, 10, percentUnits::pct);
       scissorLift2.spin(forward, 10, percentUnits::pct);
+      scissorLift3.spin(forward, 10, percentUnits::pct);
   }
   else
   {
